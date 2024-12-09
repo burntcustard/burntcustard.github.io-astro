@@ -1,0 +1,22 @@
+---
+import BaseHtml from '../components/BaseHtml.astro';
+import Listing from '../components/Listing.astro';
+import { playItems } from '../data/play';
+---
+
+<BaseHtml>
+	<header>
+		<h1>Play</h1>
+		<p>A collection of little games, tools, and experiments that I created myself, or helped out with. Source code for most these is available on <a href="https://github.com/burntcustard">GitHub</a>.</p>
+	</header>
+
+	<section>
+		{playItems.map(item => (
+			<Listing
+				excerpt={item.description}
+				title={item.title}
+				href={item.href}
+			/>
+		))}
+	</section>
+</BaseHtml>
