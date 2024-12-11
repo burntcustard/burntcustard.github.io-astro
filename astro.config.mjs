@@ -3,8 +3,16 @@ import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 
-// https://astro.build/config
+import webmanifest from 'astro-webmanifest';
+
 export default defineConfig({
-	site: 'https://example.com',
-	integrations: [mdx(), sitemap()],
+  site: 'https://burnt.io',
+  integrations: [
+    mdx(),
+    sitemap(),
+    webmanifest({
+      name: 'burnt.io',
+      icon: 'public/favicon.svg',
+    }),
+  ],
 });

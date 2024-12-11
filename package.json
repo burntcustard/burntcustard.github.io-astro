@@ -15,6 +15,7 @@
     "@astrojs/rss": "^4.0.10",
     "@astrojs/sitemap": "^3.2.1",
     "astro": "^5.0.3",
+    "astro-webmanifest": "^1.0.0",
     "typescript": "^5.7.2"
   },
   "devDependencies": {
