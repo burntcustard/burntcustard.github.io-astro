@@ -6,7 +6,7 @@ import webmanifest from 'astro-webmanifest';
 import redirects from './src/data/redirects';
 
 export default defineConfig({
-  site: 'https://burntcustard.github.io',
+  site: 'https://burnt.io',
   base: '/burcustard.github.io-astro',
   redirects,
   integrations: [
