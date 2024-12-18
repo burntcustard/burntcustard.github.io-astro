@@ -36,9 +36,9 @@ const {
   data-pen-title={penTitle}
   data-preview={preview}
   data-user={user}
-  style=`height: ${height}px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;`
+  style=`height: ${height}px; box-sizing: border-box; display: grid; place-items: center; border: 2px solid; padding: 1rem;`
 >
   <span>See the Pen <a href={`https://codepen.io/${user}/pen/${slugHash}`}>
-  {penTitle}</a> by {user} (<a href={`https://codepen.io/${user}`}>@{user}</a>)
+  {penTitle}</a> by <a href={`https://codepen.io/${user}`}>@{user}</a>
   on <a href="https://codepen.io">CodePen</a>.</span>
 </p>

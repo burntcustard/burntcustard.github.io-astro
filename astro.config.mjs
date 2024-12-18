@@ -16,4 +16,5 @@ export default defineConfig({
       icon: 'public/favicon.svg',
     }),
   ],
+  prefetch: true,
 });

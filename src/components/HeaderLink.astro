@@ -254,6 +254,7 @@ const isActive = href === pathname || href === '/' + (subpath?.[0] ?? '');
 <a
   href={href}
   aria-current={isActive || undefined}
+  data-astro-prefetch
   {...props}
 >
   <slot />
