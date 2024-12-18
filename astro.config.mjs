@@ -14,6 +14,8 @@ export default defineConfig({
     webmanifest({
       name: 'burnt.io',
       icon: 'public/favicon.svg',
+      theme_color: "#ffcc11",
+      background_color: "#222222",
     }),
   ],
   prefetch: true,
