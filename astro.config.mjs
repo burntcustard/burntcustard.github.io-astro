@@ -7,7 +7,6 @@ import redirects from './src/data/redirects';
 
 export default defineConfig({
   site: 'https://burnt.io',
-  base: '/burcustard.github.io-astro',
   redirects,
   integrations: [
     mdx(),
