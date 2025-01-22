@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import { SITE_TITLE } from '../../consts';
 import BaseHtml from '../../components/BaseHtml.astro';
 import Listing from '../../components/Listing.astro';
 
@@ -8,7 +9,10 @@ const posts = (await getCollection('blog')).sort(
 );
 ---
 
-<BaseHtml description="John, aka burntcustard\'s blog">
+<BaseHtml
+	description="John, aka burntcustard\'s blog"
+	title={`${SITE_TITLE} - Blog`}
+>
 	<h1>Blog</h1>
 
 	<section>
