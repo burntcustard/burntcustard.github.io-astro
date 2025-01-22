@@ -9,9 +9,7 @@ const posts = (await getCollection('blog')).sort(
 ---
 
 <BaseHtml description="John, aka burntcustard\'s blog">
-	<header>
-		<h1>Blog</h1>
-	</header>
+	<h1>Blog</h1>
 
 	<section>
 		{posts.map((post) => (
