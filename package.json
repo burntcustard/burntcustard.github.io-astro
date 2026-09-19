@@ -20,5 +20,14 @@
   },
   "devDependencies": {
     "@types/mdx": "^2.0.13"
+  },
+  "overrides": {
+    "sharp": "^0.35.4"
+  },
+  "allowScripts": {
+    "sharp@0.32.6": true,
+    "sharp@0.33.5": true,
+    "esbuild@0.21.5": true,
+    "esbuild@0.24.0": true
   }
 }
