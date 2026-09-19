@@ -59,6 +59,8 @@ const isActive = href === pathname || href === '/' + (subpath?.[0] ?? '');
   }
 
   a[href="/"] {
+    --deg: var(--brand-border-deg, 0deg);
+
     &[aria-current] {
       display: none;
     }

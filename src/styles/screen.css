@@ -5,7 +5,7 @@
   max-width: 640px;
   flex-basis: 0;
   flex-grow: 1;
-  transition: box-shadow .5s, transform .5s, opacity .5s, outline-color .2s;
+  transition: box-shadow .5s, outline-color .2s;
   outline: 2px solid transparent;
   outline-offset: 2px;
 }

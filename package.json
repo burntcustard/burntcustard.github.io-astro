@@ -11,23 +11,20 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.4",
-    "@astrojs/mdx": "^4.0.2",
-    "@astrojs/sitemap": "^3.2.1",
-    "astro": "^5.0.9",
-    "astro-webmanifest": "^1.0.0",
-    "typescript": "^5.7.2"
+    "@astrojs/mdx": "^8.0.1",
+    "@astrojs/sitemap": "^3.7.4",
+    "astro": "^7.3.3",
+    "astro-webmanifest": "^1.0.0"
   },
   "devDependencies": {
-    "@types/mdx": "^2.0.13"
+    "@astrojs/check": "^0.9.10",
+    "@types/mdx": "^2.0.14",
+    "typescript": "^6.0.3"
   },
   "overrides": {
     "sharp": "^0.35.4"
   },
   "allowScripts": {
-    "sharp@0.32.6": true,
-    "sharp@0.33.5": true,
-    "esbuild@0.21.5": true,
-    "esbuild@0.24.0": true
+    "esbuild@0.28.2": true
   }
 }

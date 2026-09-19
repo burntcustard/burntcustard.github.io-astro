@@ -1,3 +1,5 @@
+# burnt.io
+
 Personal website built with [astro](https://astro.build/).
 
 ## Commands

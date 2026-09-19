@@ -38,6 +38,32 @@ const { title, description } = Astro.props;
   </style>
 
   {/* Scripts */}
+  <script is:inline>
+    try {
+      const brandBorderDeg = sessionStorage.getItem('brandBorderDeg');
+      if (brandBorderDeg) {
+        document.documentElement.style.setProperty('--brand-border-deg', brandBorderDeg);
+      }
+
+      if (sessionStorage.getItem('previousPageWasHome') === 'true') {
+        document.documentElement.dataset.previousPageWasHome = 'true';
+      }
+
+      addEventListener('pagehide', () => {
+        sessionStorage.setItem(
+          'previousPageWasHome',
+          String(location.pathname === '/'),
+        );
+      });
+    } catch {
+      // Keep the default border angle and transition behaviour when storage is unavailable.
+    }
+  </script>
+  <script is:inline>
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.documentElement.dataset.slideIn = 'pending';
+    }
+  </script>
   <script src="../scripts/fancy-borders.ts"></script>
   <script src="../scripts/slide-in.ts"></script>
 

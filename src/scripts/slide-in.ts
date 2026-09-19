@@ -1,27 +1,37 @@
 if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-  const articles = document.querySelectorAll('article');
+  const targets = document.querySelectorAll<HTMLElement>([
+    'main > header',
+    'main > h1',
+    'main > p',
+    '.content > *',
+    'article.listing > div',
+    'article.work',
+  ].join(','));
+  const workTargets = Array.from(document.querySelectorAll('article.work'));
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        const div = (entry.target.querySelector('.screen') ?? entry.target.querySelector('div')) as HTMLElement;
-
-        div.style.transition = div.style.transform = div.style.opacity = '';
+        const target = entry.target as HTMLElement;
+        target.style.transition = target.style.translate = target.style.opacity = '';
+        observer.unobserve(target);
       }
     });
-  }, { threshold: .5 });
+  }, { threshold: .1 });
 
-  articles.forEach((article, index) => {
-    const div = (article.querySelector('.screen') ?? article.querySelector('div')) as HTMLElement;
-    const isScreen = div?.className === 'screen';
-    const isMobile = window.screen.width <= 500;
-    const translateDirection = isScreen ? (isMobile ? 0 : Math.pow(-1, index)) : 1;
-    div.style.transform = `translateX(${translateDirection * 200}px)`;
-    div.style.opacity = '0';
-    div.style.transition = 'none';
+  targets.forEach((target) => {
+    const workIndex = workTargets.indexOf(target);
+    const translateDirection = workIndex === -1 ? 1 : workIndex % 2 ? 1 : -1;
+    target.style.translate = `${translateDirection * 200}px`;
+    target.style.opacity = '0';
+    target.style.transition = 'none';
   });
 
-  articles.forEach((article, index) => {
-    setTimeout(() => observer.observe(article), 300 + 300 * index)
+  // The initial hidden state is now represented by inline styles, so the
+  // head-level fallback selector can be removed without a visible flash.
+  delete document.documentElement.dataset.slideIn;
+
+  targets.forEach((target, index) => {
+    setTimeout(() => observer.observe(target), 300 + 150 * Math.min(index, 4))
   });
 }

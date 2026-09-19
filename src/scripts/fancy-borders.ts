@@ -5,9 +5,13 @@ function applyFancyBorders() {
     const { x, y, width, height } = element.getBoundingClientRect();
     const dx = mx - (x + width / 2);
     const dy = my - (y + height / 2);
-    const angle = Math.atan2(dy, dx) * 180 / Math.PI;
+    const deg = `${~~(Math.atan2(dy, dx) * 180 / Math.PI) + 90}deg`;
     // Set the --deg CSS var, rounded to int for inline-style neatness
-    element.style.setProperty('--deg', `${~~angle + 90}deg`);
+    element.style.setProperty('--deg', deg);
+
+    if (element.matches('nav a[href="/"]')) {
+      sessionStorage.setItem('brandBorderDeg', deg);
+    }
   }
 
   window.addEventListener('mousemove', ({ clientX, clientY }) => {
